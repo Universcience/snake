@@ -12,7 +12,6 @@ lf,hf = lc * tc,hc * tc # Hauteur/largeur (pixels)
 # Pixel art
 sol   = pygame.image.load("sand.png")
 mur   = pygame.image.load("wall.png")
-#boost = pygame.image.load("star.png")
 corps = pygame.image.load("body.png")
 tete  = pygame.image.load("head.png")
 

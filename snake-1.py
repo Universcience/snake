@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import pygame, random
-#from collections import deque
 from pygame.locals import *
 
 # Constantes du jeu
