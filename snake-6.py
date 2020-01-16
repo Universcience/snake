@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+# Jeu du serpent, sixième itération. (Corps du serpent et croissance.)
+# Copyright (C) 2020 - Jérôme Kirman
+# Ce programme est un logiciel libre ; voir les ficheirs README.md et LICENSE.
+
 import pygame, random
 from collections import deque
 from pygame.locals import *

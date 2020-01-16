@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+# Jeu du serpent, première itération. (Ajout terrain.)
+# Copyright (C) 2020 - Jérôme Kirman
+# Ce programme est un logiciel libre ; voir les ficheirs README.md et LICENSE.
+
 import pygame, random
 from pygame.locals import *
 
