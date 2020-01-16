@@ -2,7 +2,7 @@
 
 # Jeu du serpent, deuxième itération. (Ajout serpent.)
 # Copyright (C) 2020 - Jérôme Kirman
-# Ce programme est un logiciel libre ; voir les ficheirs README.md et LICENSE.
+# Ce programme est un logiciel libre ; voir les fichiers README.md et LICENSE.
 
 import pygame, random
 from collections import deque
