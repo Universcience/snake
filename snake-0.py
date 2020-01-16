@@ -3,7 +3,7 @@
 import pygame
 from pygame.locals import *
 
-lf, hf = 50,50
+lf, hf = 50, 50
 
 # Trucs importants
 pygame.init()
@@ -20,6 +20,6 @@ while True:
 			if event.key == K_ESCAPE:
 				print ("Touche ECHAP appuyée ; fin du jeu.")
 				exit()
-	
+
 	pygame.display.update()
 	ips.tick(vitesse)

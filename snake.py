@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-import random, pygame
+import pygame, random
 from collections import deque
 from pygame.locals import *
 
 # Constantes du jeu
-lc,hc = 80, 60          # Hauteur/largeur (cases)
-tc = 10                 # Taille d'une case (pixels)
-lf,hf = lc * tc,hc * tc # Hauteur/largeur (pixels)
+lc, hc = 80, 60       # Hauteur/largeur (cases)
+tc = 10               # Taille d'une case (pixels)
+lf, hf = lc*tc, hc*tc # Hauteur/largeur (pixels)
 
 # Pixel art
 sol   = pygame.image.load("sand.png")
@@ -29,17 +29,6 @@ def case_libre(x, y):
 			return False
 	return True
 
-# Retourne la case voisine de (x,y) dans la direction d choisie
-def devant(x, y, d):
-	if d == 0:
-		return (x,y-1)
-	if d == 1:
-		return (x-1,y)
-	if d == 2:
-		return (x,y+1)
-	if d == 3:
-		return (x+1,y)
-
 # Génération de la carte en mémoire
 niveau = []
 for i in range(lc):
@@ -52,8 +41,9 @@ for i in range(lc):
 
 # Placement du serpent
 serpent = deque()
-serpent.appendleft((lc//2,hc//2))
-direction = 0
+serpent.appendleft( (lc//2,hc//2) )
+direction = 180
+dx, dy = 0, 1
 
 # Placement d'un bonus au sol au hasard
 def choisir_case_bonus():
@@ -82,16 +72,20 @@ while True:
 				exit()
 			elif event.key == K_UP:
 				direction = 0
+				dx, dy = 0, -1
 			elif event.key == K_DOWN:
-				direction = 2
+				direction = 180
+				dx, dy = 0, 1
 			elif event.key == K_LEFT:
-				direction = 1
+				direction = 90
+				dx, dy = -1, 0
 			elif event.key == K_RIGHT:
-				direction = 3
+				direction = 270
+				dx, dy = 1, 0
 
 	# Déplacement/croissance du serpent
 	x,y = serpent[0]
-	nx,ny = devant(x, y, direction)
+	nx, ny = x+dx, y+dy
 	if (not case_libre(nx, ny)):
 		print ("Game over !")
 		exit()
@@ -121,11 +115,11 @@ while True:
 		x,y = s
 		fenetre.blit(corps, case(x,y))
 	x,y = serpent[0]
-	fenetre.blit(pygame.transform.rotate(tete, 90*direction), case(x,y))
+	fenetre.blit(pygame.transform.rotate(tete, direction), case(x,y))
 
 	# Dessin du bonus
 	x,y = bonus
 	fenetre.blit(boost, case(x,y))
-	
+
 	pygame.display.update()
 	ips.tick(vitesse)

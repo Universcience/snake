@@ -5,9 +5,9 @@ from collections import deque
 from pygame.locals import *
 
 # Constantes du jeu
-lc,hc = 80, 60          # Hauteur/largeur (cases)
-tc = 10                 # Taille d'une case (pixels)
-lf,hf = lc * tc,hc * tc # Hauteur/largeur (pixels)
+lc, hc = 80, 60       # Hauteur/largeur (cases)
+tc = 10               # Taille d'une case (pixels)
+lf, hf = lc*tc, hc*tc # Hauteur/largeur (pixels)
 
 # Pixel art
 sol   = pygame.image.load("sand.png")
@@ -31,8 +31,8 @@ for i in range(lc):
 
 # Placement du serpent
 serpent = deque()
-serpent.appendleft((lc//2,hc//2))
-direction = 0
+serpent.appendleft( (lc//2,hc//2) )
+direction = 180
 
 # Trucs importants
 pygame.init()
@@ -52,11 +52,11 @@ while True:
 			elif event.key == K_UP:
 				direction = 0
 			elif event.key == K_DOWN:
-				direction = 2
+				direction = 180
 			elif event.key == K_LEFT:
-				direction = 1
+				direction = 90
 			elif event.key == K_RIGHT:
-				direction = 3
+				direction = 270
 
 	# Dessin du niveau
 	for i in range(lc):
@@ -71,7 +71,7 @@ while True:
 		x,y = s
 		fenetre.blit(corps, case(x,y))
 	x,y = serpent[0]
-	fenetre.blit(pygame.transform.rotate(tete, 90*direction), case(x,y))
-	
+	fenetre.blit(pygame.transform.rotate(tete, direction), case(x,y))
+
 	pygame.display.update()
 	ips.tick(vitesse)

@@ -4,9 +4,9 @@ import pygame, random
 from pygame.locals import *
 
 # Constantes du jeu
-lc,hc = 80, 60          # Hauteur/largeur (cases)
-tc = 10                 # Taille d'une case (pixels)
-lf,hf = lc * tc,hc * tc # Hauteur/largeur (pixels)
+lc, hc = 80, 60       # Hauteur/largeur (cases)
+tc = 10               # Taille d'une case (pixels)
+lf, hf = lc*tc, hc*tc # Hauteur/largeur (pixels)
 
 # Pixel art
 sol   = pygame.image.load("sand.png")
